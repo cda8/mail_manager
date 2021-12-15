@@ -1,0 +1,4 @@
+fr\afpa\cda\exception\InvalidMDPException.class
+fr\afpa\cda\ConnexionLauncher.class
+fr\afpa\cda\metier\ConnexionManager.class
+fr\afpa\utils\LoadProperties.class

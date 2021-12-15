@@ -1,0 +1,251 @@
+2021-11-30 21:40:49 ERROR ConnexionLauncher:18 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:32)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:15)
+2021-11-30 21:42:13 ERROR ConnexionLauncher:19 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:32)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:15)
+2021-11-30 21:46:13 ERROR ConnexionManager:42 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:37)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:12)
+2021-11-30 21:46:35 ERROR ConnexionManager:42 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:37)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:12)
+2021-11-30 21:48:33 ERROR ConnexionManager:42 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:37)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:12)
+2021-11-30 21:58:00 ERROR ConnexionManager:42 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:37)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:12)
+2021-11-30 22:22:01 INFO  ConnexionManager:35 - msg d'information
+2021-11-30 22:22:01 WARN  ConnexionManager:36 - msg d'avertissement
+2021-11-30 22:22:01 ERROR ConnexionManager:37 - msg d'erreur
+2021-11-30 22:22:01 ERROR ConnexionManager:48 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:43)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:12)
+2021-11-30 22:23:02 INFO  ConnexionManager:35 - msg d'information
+2021-11-30 22:23:02 WARN  ConnexionManager:36 - msg d'avertissement
+2021-11-30 22:23:02 ERROR ConnexionManager:37 - msg d'erreur
+2021-11-30 22:23:02 ERROR ConnexionManager:49 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:44)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:12)
+2021-12-01 09:51:59 INFO  ConnexionManager:33 - msg d'information
+2021-12-01 09:51:59 WARN  ConnexionManager:34 - msg d'avertissement
+2021-12-01 09:51:59 ERROR ConnexionManager:35 - msg d'erreur
+2021-12-01 09:51:59 ERROR ConnexionManager:47 - inStream parameter is null
+java.lang.NullPointerException: inStream parameter is null
+	at java.base/java.util.Objects.requireNonNull(Objects.java:233)
+	at java.base/java.util.Properties.load(Properties.java:407)
+	at fr.afpa.utils.LoadProperties.load(LoadProperties.java:15)
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:40)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:12)
+2021-12-01 09:52:49 INFO  ConnexionManager:33 - msg d'information
+2021-12-01 09:52:49 WARN  ConnexionManager:34 - msg d'avertissement
+2021-12-01 09:52:49 ERROR ConnexionManager:35 - msg d'erreur
+2021-12-01 09:52:49 ERROR ConnexionManager:47 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:42)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:12)
+2021-12-01 09:56:09 INFO  ConnexionManager:33 - msg d'information
+2021-12-01 09:56:09 WARN  ConnexionManager:34 - msg d'avertissement
+2021-12-01 09:56:09 ERROR ConnexionManager:35 - msg d'erreur
+2021-12-01 09:56:09 WARN  ConnexionManager:45 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:42)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:12)
+2021-12-01 11:42:48 DEBUG ConnexionManager:32 - msg de debogage
+2021-12-01 11:42:48 INFO  ConnexionManager:33 - msg d'information
+2021-12-01 11:42:48 WARN  ConnexionManager:34 - msg d'avertissement
+2021-12-01 11:42:48 ERROR ConnexionManager:35 - msg d'erreur
+2021-12-01 11:42:48 TRACE ConnexionManager:36 - msg de trace
+2021-12-01 11:42:48 ERROR ConnexionManager:45 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:42)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:12)
+2021-12-01 11:49:10 DEBUG ConnexionManager:32 - msg de debogage
+2021-12-01 11:49:10 INFO  ConnexionManager:33 - msg d'information
+2021-12-01 11:49:10 WARN  ConnexionManager:34 - msg d'avertissement
+2021-12-01 11:49:10 ERROR ConnexionManager:35 - msg d'erreur
+2021-12-01 11:49:10 TRACE ConnexionManager:36 - msg de trace
+2021-12-01 11:49:10 ERROR ConnexionManager:44 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:41)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:12)
+2021-12-01 11:50:10 DEBUG ConnexionManager:32 - msg de debogage
+2021-12-01 11:50:10 INFO  ConnexionManager:33 - msg d'information
+2021-12-01 11:50:10 WARN  ConnexionManager:34 - msg d'avertissement
+2021-12-01 11:50:10 ERROR ConnexionManager:35 - msg d'erreur
+2021-12-01 11:50:10 TRACE ConnexionManager:36 - msg de trace
+2021-12-01 11:50:10 ERROR ConnexionManager:45 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:42)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:12)
+2021-12-01 13:34:41 ERROR ConnexionLauncher:16 - Le mot de passe doit contenir au moins 8 caractères
+fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:53)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:14)
+2021-12-06 10:23:02 ERROR ConnexionLauncher:16 - inStream parameter is null
+java.lang.NullPointerException: inStream parameter is null
+	at java.base/java.util.Objects.requireNonNull(Objects.java:233)
+	at java.base/java.util.Properties.load(Properties.java:407)
+	at fr.afpa.utils.LoadProperties.load(LoadProperties.java:14)
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:46)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:14)
+2021-12-06 10:23:15 ERROR ConnexionLauncher:16 - inStream parameter is null
+java.lang.NullPointerException: inStream parameter is null
+	at java.base/java.util.Objects.requireNonNull(Objects.java:233)
+	at java.base/java.util.Properties.load(Properties.java:407)
+	at fr.afpa.utils.LoadProperties.load(LoadProperties.java:14)
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:46)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:14)
+2021-12-06 10:23:18 ERROR ConnexionLauncher:16 - inStream parameter is null
+java.lang.NullPointerException: inStream parameter is null
+	at java.base/java.util.Objects.requireNonNull(Objects.java:233)
+	at java.base/java.util.Properties.load(Properties.java:407)
+	at fr.afpa.utils.LoadProperties.load(LoadProperties.java:14)
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:46)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:14)
+2021-12-09 10:00:48 INFO  ConnexionManager:63 - mail : formationcda@laposte.net
+2021-12-09 10:02:20 INFO  ConnexionManager:62 - mail : formationcda@laposte.net
+2021-12-09 10:02:20 INFO  ConnexionManager:63 - password : FormationAfpa2021!
+2021-12-09 10:02:20 INFO  ConnexionManager:64 - server : imap.laposte.net
+2021-12-09 10:04:21 INFO  ConnexionManager:62 - mail : formationcda@laposte.net
+2021-12-09 10:04:21 INFO  ConnexionManager:63 - password : FormationAfpa2021!
+2021-12-09 10:04:21 INFO  ConnexionManager:64 - server : imap.laposte.net
+2021-12-09 10:06:49 INFO  ConnexionManager:66 - mail : formationcda@laposte.net
+2021-12-09 10:06:49 INFO  ConnexionManager:67 - password : FormationAfpa2021!
+2021-12-09 10:06:49 INFO  ConnexionManager:68 - server : imap.laposte.net
+2021-12-09 10:21:17 INFO  ConnexionManager:77 - Total mails : 3
+2021-12-09 11:49:19 INFO  ConnexionManager:73 - Total mails : 3
+2021-12-09 11:51:32 INFO  ConnexionManager:75 - Total mails : 3
+2021-12-09 11:53:00 INFO  ConnexionManager:74 - Total mails : 3
+2021-12-09 16:04:05 INFO  ConnexionManager:73 - Total mails : [Ljakarta.mail.Message;@682b2fa
+2021-12-09 16:06:52 ERROR ConnexionLauncher:17 - This operation is not allowed on a closed folder
+java.lang.IllegalStateException: This operation is not allowed on a closed folder
+	at com.sun.mail.imap.IMAPFolder.checkOpened(IMAPFolder.java:454)
+	at com.sun.mail.imap.IMAPFolder.getMessages(IMAPFolder.java:1832)
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:73)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:15)
+2021-12-09 16:09:25 ERROR ConnexionLauncher:17 - This operation is not allowed on a closed folder
+java.lang.IllegalStateException: This operation is not allowed on a closed folder
+	at com.sun.mail.imap.IMAPFolder.checkOpened(IMAPFolder.java:454)
+	at com.sun.mail.imap.IMAPFolder.getMessages(IMAPFolder.java:1832)
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:74)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:15)
+2021-12-09 16:10:48 ERROR ConnexionLauncher:17 - This operation is not allowed on a closed folder
+java.lang.IllegalStateException: This operation is not allowed on a closed folder
+	at com.sun.mail.imap.IMAPFolder.checkOpened(IMAPFolder.java:454)
+	at com.sun.mail.imap.IMAPFolder.getMessages(IMAPFolder.java:1832)
+	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:74)
+	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:15)
+2021-12-09 16:13:17 INFO  ConnexionManager:77 - From: Bahtat Jaouad <Jaouad.Bahtat@afpa.fr>
+2021-12-09 16:13:17 INFO  ConnexionManager:78 - Subject: testmail2
+2021-12-09 16:13:17 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@37883b97
+2021-12-09 16:13:17 INFO  ConnexionManager:77 - From: Bahtat Jaouad <Jaouad.Bahtat@afpa.fr>
+2021-12-09 16:13:17 INFO  ConnexionManager:78 - Subject: hello
+2021-12-09 16:13:17 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@6ab778a
+2021-12-09 16:13:17 INFO  ConnexionManager:77 - From: Bahtat Jaouad <Jaouad.Bahtat@afpa.fr>
+2021-12-09 16:13:17 INFO  ConnexionManager:78 - Subject: yo
+2021-12-09 16:13:17 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@1dac5ef
+2021-12-09 16:13:17 INFO  ConnexionManager:77 - From: Christophe Burckard <christopheburckard@yahoo.fr>
+2021-12-09 16:13:17 INFO  ConnexionManager:78 - Subject: hola
+2021-12-09 16:13:17 INFO  ConnexionManager:79 - Content: un p'tit test
+
+2021-12-09 16:13:17 INFO  ConnexionManager:77 - From: Christophe Burckard <christopheburckard@yahoo.fr>
+2021-12-09 16:13:17 INFO  ConnexionManager:78 - Subject: Demain on picole chez Fabinou :-))
+2021-12-09 16:13:17 INFO  ConnexionManager:79 - Content: 
+
+2021-12-09 16:13:17 INFO  ConnexionManager:77 - From: Ignacio Lopez Chao <ignlopcha@hotmail.es>
+2021-12-09 16:13:17 INFO  ConnexionManager:78 - Subject: TEST FLAG MAIL NON LU. NE PAS OUVRIR SVP
+2021-12-09 16:13:17 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@68267da0
+2021-12-09 16:13:17 INFO  ConnexionManager:77 - From: mathieu romatet <mromatet@gmail.com>
+2021-12-09 16:13:17 INFO  ConnexionManager:78 - Subject: NE PAS OUVRIR
+2021-12-09 16:13:17 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@2638011
+2021-12-09 16:13:17 INFO  ConnexionManager:77 - From: Ignacio Lopez Chao <ignlopcha@hotmail.es>
+2021-12-09 16:13:17 INFO  ConnexionManager:78 - Subject: RV: TEST FLAG MAIL NON LU. NE PAS OUVRIR SVP
+2021-12-09 16:13:17 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@6ff29830
+2021-12-09 16:13:17 INFO  ConnexionManager:82 - Total mails : [Ljakarta.mail.Message;@6a2b953e
+2021-12-09 16:19:01 INFO  ConnexionManager:77 - From: Bahtat Jaouad <Jaouad.Bahtat@afpa.fr>
+2021-12-09 16:19:01 INFO  ConnexionManager:78 - Subject: testmail2
+2021-12-09 16:19:01 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@37883b97
+2021-12-09 16:19:01 INFO  ConnexionManager:77 - From: Bahtat Jaouad <Jaouad.Bahtat@afpa.fr>
+2021-12-09 16:19:01 INFO  ConnexionManager:78 - Subject: hello
+2021-12-09 16:19:01 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@6ab778a
+2021-12-09 16:19:01 INFO  ConnexionManager:77 - From: Bahtat Jaouad <Jaouad.Bahtat@afpa.fr>
+2021-12-09 16:19:01 INFO  ConnexionManager:78 - Subject: yo
+2021-12-09 16:19:01 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@1dac5ef
+2021-12-09 16:19:01 INFO  ConnexionManager:77 - From: Christophe Burckard <christopheburckard@yahoo.fr>
+2021-12-09 16:19:01 INFO  ConnexionManager:78 - Subject: Demain on picole chez Fabinou :-))
+2021-12-09 16:19:01 INFO  ConnexionManager:79 - Content: 
+
+2021-12-09 16:19:01 INFO  ConnexionManager:77 - From: Ignacio Lopez Chao <ignlopcha@hotmail.es>
+2021-12-09 16:19:01 INFO  ConnexionManager:78 - Subject: TEST FLAG MAIL NON LU. NE PAS OUVRIR SVP
+2021-12-09 16:19:01 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@1ebd319f
+2021-12-09 16:19:01 INFO  ConnexionManager:77 - From: mathieu romatet <mromatet@gmail.com>
+2021-12-09 16:19:01 INFO  ConnexionManager:78 - Subject: NE PAS OUVRIR
+2021-12-09 16:19:01 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@2638011
+2021-12-09 16:19:01 INFO  ConnexionManager:77 - From: Ignacio Lopez Chao <ignlopcha@hotmail.es>
+2021-12-09 16:19:01 INFO  ConnexionManager:78 - Subject: RV: TEST FLAG MAIL NON LU. NE PAS OUVRIR SVP
+2021-12-09 16:19:01 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@6ff29830
+2021-12-09 16:19:01 INFO  ConnexionManager:82 - Total mails : [Ljakarta.mail.Message;@6a2b953e
+2021-12-10 10:15:22 INFO  ConnexionManager:77 - From: Bahtat Jaouad <Jaouad.Bahtat@afpa.fr>
+2021-12-10 10:15:22 INFO  ConnexionManager:78 - Subject: testmail2
+2021-12-10 10:15:22 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@37883b97
+2021-12-10 10:15:22 INFO  ConnexionManager:77 - From: Bahtat Jaouad <Jaouad.Bahtat@afpa.fr>
+2021-12-10 10:15:22 INFO  ConnexionManager:78 - Subject: hello
+2021-12-10 10:15:22 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@6ab778a
+2021-12-10 10:15:22 INFO  ConnexionManager:77 - From: Bahtat Jaouad <Jaouad.Bahtat@afpa.fr>
+2021-12-10 10:15:22 INFO  ConnexionManager:78 - Subject: yo
+2021-12-10 10:15:22 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@1dac5ef
+2021-12-10 10:15:22 INFO  ConnexionManager:77 - From: Christophe Burckard <christopheburckard@yahoo.fr>
+2021-12-10 10:15:22 INFO  ConnexionManager:78 - Subject: Demain on picole chez Fabinou :-))
+2021-12-10 10:15:22 INFO  ConnexionManager:79 - Content: 
+
+2021-12-10 10:15:22 INFO  ConnexionManager:77 - From: Ignacio Lopez Chao <ignlopcha@hotmail.es>
+2021-12-10 10:15:22 INFO  ConnexionManager:78 - Subject: TEST FLAG MAIL NON LU. NE PAS OUVRIR SVP
+2021-12-10 10:15:22 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@1ebd319f
+2021-12-10 10:15:22 INFO  ConnexionManager:77 - From: mathieu romatet <mromatet@gmail.com>
+2021-12-10 10:15:22 INFO  ConnexionManager:78 - Subject: NE PAS OUVRIR
+2021-12-10 10:15:22 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@2638011
+2021-12-10 10:15:22 INFO  ConnexionManager:77 - From: Ignacio Lopez Chao <ignlopcha@hotmail.es>
+2021-12-10 10:15:22 INFO  ConnexionManager:78 - Subject: RV: TEST FLAG MAIL NON LU. NE PAS OUVRIR SVP
+2021-12-10 10:15:22 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@6ff29830
+2021-12-10 10:15:22 INFO  ConnexionManager:77 - From: Marie Bracquemond <marie.bracquemond92@gmail.com>
+2021-12-10 10:15:22 INFO  ConnexionManager:78 - Subject: test du soir
+2021-12-10 10:15:22 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@6a2b953e
+2021-12-10 10:15:22 INFO  ConnexionManager:81 - imap.laposte.net
+2021-12-10 10:15:22 INFO  ConnexionManager:82 - Total mails : [Ljakarta.mail.Message;@3098cf3b
+2021-12-10 10:35:50 INFO  ConnexionManager:77 - From: Bahtat Jaouad <Jaouad.Bahtat@afpa.fr>
+2021-12-10 10:35:50 INFO  ConnexionManager:78 - Subject: testmail2
+2021-12-10 10:35:50 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@37883b97
+2021-12-10 10:35:50 INFO  ConnexionManager:77 - From: Bahtat Jaouad <Jaouad.Bahtat@afpa.fr>
+2021-12-10 10:35:50 INFO  ConnexionManager:78 - Subject: hello
+2021-12-10 10:35:50 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@6ab778a
+2021-12-10 10:35:50 INFO  ConnexionManager:77 - From: Bahtat Jaouad <Jaouad.Bahtat@afpa.fr>
+2021-12-10 10:35:50 INFO  ConnexionManager:78 - Subject: yo
+2021-12-10 10:35:50 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@1dac5ef
+2021-12-10 10:35:50 INFO  ConnexionManager:77 - From: Christophe Burckard <christopheburckard@yahoo.fr>
+2021-12-10 10:35:50 INFO  ConnexionManager:78 - Subject: Demain on picole chez Fabinou :-))
+2021-12-10 10:35:50 INFO  ConnexionManager:79 - Content: 
+
+2021-12-10 10:35:50 INFO  ConnexionManager:77 - From: Ignacio Lopez Chao <ignlopcha@hotmail.es>
+2021-12-10 10:35:50 INFO  ConnexionManager:78 - Subject: TEST FLAG MAIL NON LU. NE PAS OUVRIR SVP
+2021-12-10 10:35:50 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@1ebd319f
+2021-12-10 10:35:50 INFO  ConnexionManager:77 - From: mathieu romatet <mromatet@gmail.com>
+2021-12-10 10:35:50 INFO  ConnexionManager:78 - Subject: NE PAS OUVRIR
+2021-12-10 10:35:50 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@2638011
+2021-12-10 10:35:50 INFO  ConnexionManager:77 - From: Ignacio Lopez Chao <ignlopcha@hotmail.es>
+2021-12-10 10:35:50 INFO  ConnexionManager:78 - Subject: RV: TEST FLAG MAIL NON LU. NE PAS OUVRIR SVP
+2021-12-10 10:35:50 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@6ff29830
+2021-12-10 10:35:50 INFO  ConnexionManager:77 - From: Marie Bracquemond <marie.bracquemond92@gmail.com>
+2021-12-10 10:35:50 INFO  ConnexionManager:78 - Subject: test du soir
+2021-12-10 10:35:50 INFO  ConnexionManager:79 - Content: jakarta.mail.internet.MimeMultipart@6a2b953e
+2021-12-10 10:35:50 INFO  ConnexionManager:81 - imap.laposte.net
+2021-12-10 10:35:50 INFO  ConnexionManager:82 - Total mails : 8
