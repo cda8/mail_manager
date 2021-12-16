@@ -1,0 +1,3 @@
+fr\afpa\cda\exception\InvalidMDPException.class
+fr\afpa\cda\metier\ConnexionLauncher.class
+fr\afpa\cda\metier\ConnexionManager.class
