@@ -16,6 +16,7 @@ public class ConnexionManager {
   private String mail;
   private String userPassword;
   protected static Store store;
+  private List<LocalMail> listeMails;
   protected static Folder inbox;
   final Logger fLOGGER = LoggerFactory.getLogger(ConnexionManager.class);
 
@@ -78,7 +79,7 @@ public class ConnexionManager {
         fLOGGER.info("Subject: " + m.getSubject());
         fLOGGER.info("Content: " + m.getContent());
       }
-      fLOGGER.info(server, Flags.Flag.class);
+      fLOGGER.info(server, Flags.);
       fLOGGER.info("Total mails : " + inbox.getMessageCount());
 
     } catch (NoSuchProviderException nspe) {

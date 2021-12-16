@@ -2,9 +2,6 @@ package fr.afpa.cda.metier;
 
 import java.util.Date;
 
-import jakarta.mail.Flags;
-import jakarta.mail.Flags.Flag;
-
 public class LocalMail {
 
   private static int idCount = 0;
@@ -12,14 +9,14 @@ public class LocalMail {
   private String sujet;
   private String expediteur;
   private Date dateReception;
-  private MyFlag flag;
+ private Flags flag;
 
   public LocalMail(String sujet, String expediteur, Date dateReception) {
     this.id = idCount++;
     this.sujet = sujet;
     this.expediteur = expediteur;
     this.dateReception = dateReception;
-    this.flag = Flags.Flag.RECENT;
+    this.flag = Flags.UNREAD;
   }
 
   public static int getIdCount() {
@@ -62,11 +59,11 @@ public class LocalMail {
     this.dateReception = dateReception;
   }
 
-  public Flag getFlag() {
+  public Flags getFlag() {
     return flag;
   }
 
-  public void setFlag(Flag flag) {
+  public void setFlag(Flags flag) {
     this.flag = flag;
   }
 
