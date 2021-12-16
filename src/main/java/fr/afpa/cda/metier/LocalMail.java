@@ -7,10 +7,6 @@ import jakarta.mail.Flags.Flag;
 
 public class LocalMail {
 
-  public enum MyFlag {
-    U, R, D
-  }
-
   private static int idCount = 0;
   private int id;
   private String sujet;
