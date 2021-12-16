@@ -9,14 +9,20 @@ public class LocalMail {
   private String sujet;
   private String expediteur;
   private Date dateReception;
- private Flags flag;
+  private AppFlags flag;
+
+  public LocalMail() {
+    idCount++;
+    this.id = idCount;
+  }
 
   public LocalMail(String sujet, String expediteur, Date dateReception) {
-    this.id = idCount++;
+    idCount++;
+    this.id = idCount;
     this.sujet = sujet;
     this.expediteur = expediteur;
     this.dateReception = dateReception;
-    this.flag = Flags.UNREAD;
+
   }
 
   public static int getIdCount() {
@@ -59,12 +65,13 @@ public class LocalMail {
     this.dateReception = dateReception;
   }
 
-  public Flags getFlag() {
+  public AppFlags getFlag() {
     return flag;
   }
 
-  public void setFlag(Flags flag) {
+  public void setFlag(AppFlags flag) {
     this.flag = flag;
   }
+
 
 }
