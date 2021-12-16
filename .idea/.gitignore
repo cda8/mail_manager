@@ -1,3 +1,12 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+/checkstyle-idea.xml
+/codestream.xml
+/compiler.xml
+/dbnavigator.xml
+/jarRepositories.xml
+/misc.xml
+/pmd-idea.xml
+/vcs.xml
+
