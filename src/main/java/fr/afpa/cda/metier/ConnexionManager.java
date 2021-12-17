@@ -1,12 +1,16 @@
 package fr.afpa.cda.metier;
 
 import fr.afpa.cda.exception.InvalidMDPException;
+import fr.afpa.cda.hibernate.MailDAOJPA;
 import fr.afpa.cda.jdbc.MailDAOJdbcImpl;
+import org.jsoup.Jsoup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 import javax.mail.*;
+import javax.mail.internet.MimeMultipart;
+import java.io.IOException;
 import java.util.*;
 
 public class ConnexionManager {
@@ -14,7 +18,7 @@ public class ConnexionManager {
     private static final String READ = "R";
     private static final String UNREAD = "U";
     private static final String DELETE = "D";
-    private final MailDAOJdbcImpl mailDAOJdbc = new MailDAOJdbcImpl();
+    private final MailDAOJPA mailDAOJPA = new MailDAOJPA();
 
     Properties properties = new Properties();
     private static final Logger LOGGER = LoggerFactory.getLogger(ConnexionManager.class);
@@ -60,7 +64,7 @@ public class ConnexionManager {
 //            e.printStackTrace();
 
 
-        } catch (MessagingException | InvalidMDPException e) {
+        } catch (MessagingException | InvalidMDPException | IOException e) {
             e.printStackTrace();
         }
 
@@ -70,16 +74,16 @@ public class ConnexionManager {
         List<LocalMail>listMail = new ArrayList<>();
         switch (userChoise){
             case 1 :
-                listMail=  mailDAOJdbc.selectByFlag(READ);
+                listMail=  mailDAOJPA.selectByFlag(READ);
                 break;
             case 2 :
-                listMail=  mailDAOJdbc.selectByFlag(UNREAD);
+                listMail=  mailDAOJPA.selectByFlag(UNREAD);
                 break;
             case 3 :
-                listMail=  mailDAOJdbc.selectByFlag(DELETE);
+                listMail=  mailDAOJPA.selectByFlag(DELETE);
                 break;
             case 4 :
-                 listMail = mailDAOJdbc.selectAll();
+                 listMail = mailDAOJPA.selectAll();
 
         }
         return listMail;
@@ -93,18 +97,20 @@ public class ConnexionManager {
 
     }
 
-    private void mapResult() throws MessagingException {
+    private void mapResult() throws MessagingException, IOException {
         for (Message message : inbox.getMessages()) {
             LocalMail mail = new LocalMail();
             char status = checkFlags(message);
 
             checkFlagsInConsol(message);
+            String body = getTextFromMessage(message);
 
             mail.setIdMail(message.getMessageNumber());
             mail.setDateReception(message.getReceivedDate());
             mail.setFlag(status);
             mail.setSujet(message.getSubject());
             mail.setExpediteur(Arrays.stream(message.getFrom()).iterator().next().toString());
+            mail.setBody(body);
             listMails.add(mail);
         }
     }
@@ -160,12 +166,12 @@ public class ConnexionManager {
     }
 
     private void selectedBy(String status) {
-        listMails=  mailDAOJdbc.selectByFlag(status);
+        listMails=  mailDAOJPA.selectByFlag(status);
     }
 
     private void forInsert(List<LocalMail> localMailList) {
         for (LocalMail m : localMailList) {
-            mailDAOJdbc.insert(m);
+            mailDAOJPA.createOrUpdate(m);
         }
         
     }
@@ -186,6 +192,36 @@ public class ConnexionManager {
     public boolean validationMDP(String mdp) {
 
         return mdp.length() >= 8;
+    }
+
+    private String getTextFromMessage(Message message) throws MessagingException, IOException {
+        String result = "";
+        if (message.isMimeType("text/plain")) {
+            result = message.getContent().toString();
+        } else if (message.isMimeType("multipart/*")) {
+            MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
+            result = getTextFromMimeMultipart(mimeMultipart);
+        }
+        return result;
+    }
+
+    private String getTextFromMimeMultipart(
+            MimeMultipart mimeMultipart)  throws MessagingException, IOException{
+        String result = "";
+        int count = mimeMultipart.getCount();
+        for (int i = 0; i < count; i++) {
+            BodyPart bodyPart = mimeMultipart.getBodyPart(i);
+            if (bodyPart.isMimeType("text/plain")) {
+                result = result + "\n" + bodyPart.getContent();
+                break; // with out break same text appears twice in my tests
+            } else if (bodyPart.isMimeType("text/html")) {
+                String html = (String) bodyPart.getContent();
+                result = result + "\n" + Jsoup.parse(html).text();
+            } else if (bodyPart.getContent() instanceof MimeMultipart){
+                result = result + getTextFromMimeMultipart((MimeMultipart)bodyPart.getContent());
+            }
+        }
+        return result;
     }
 
     //TODO a voir pour le body du message :

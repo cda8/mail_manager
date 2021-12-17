@@ -1,0 +1,15 @@
+DROP DATABASE IF EXISTS MAILS_DB;
+
+CREATE DATABASE MAILS_DB;
+
+DROP TABLE IF EXISTS Mail;
+CREATE TABLE Mail(
+    idMail int NOT NULL,
+    sujet text NOT NULL,
+    expediteur varchar(200) NOT NULL,
+    dateReception varchar(200) NOT NULL,
+    status varchar(1) NOT NULL,
+    body text
+ );
+
+ALTER TABLE mail ADD CONSTRAINT PK_Mail PRIMARY KEY (idMail);

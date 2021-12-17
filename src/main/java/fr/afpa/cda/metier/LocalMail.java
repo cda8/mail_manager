@@ -13,6 +13,7 @@ public class LocalMail {
     private String expediteur;
     private Date dateReception;
     private char flag;
+    private String body;
 
     public LocalMail() {
     }
@@ -64,6 +65,14 @@ public class LocalMail {
 
     public void setIdMail(int idMail) {
         this.idMail = idMail;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
     }
 
     @Override
