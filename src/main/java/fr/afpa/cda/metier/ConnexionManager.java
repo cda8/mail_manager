@@ -6,6 +6,7 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Properties;
 
+import fr.afpa.cda.entities.MailEntity;
 import fr.afpa.cda.exception.InvalidMDPException;
 import fr.afpa.utils.LoadProperties;
 import jakarta.mail.*;
@@ -20,7 +21,7 @@ public class ConnexionManager {
   private String mail;
   private String userPassword;
   protected static Store store;
-  private List<LocalMail> listeMails;
+  private List<Mail> listeMails;
   protected static Folder inbox;
   final Logger fLOGGER = LoggerFactory.getLogger(ConnexionManager.class);
 
@@ -28,21 +29,7 @@ public class ConnexionManager {
     listeMails = new ArrayList<>();
   }
 
-  public String getUserMail() {
-    return mail;
-  }
 
-  public void setUserMail(String userMail) {
-    this.mail = userMail;
-  }
-
-  public String getUserMDP() {
-    return userPassword;
-  }
-
-  public void setUserMDP(String userMDP) {
-    this.userPassword = userMDP;
-  }
 
   /**
    *
@@ -78,15 +65,6 @@ public class ConnexionManager {
       inbox = store.getFolder("inbox");
       inbox.open(Folder.READ_ONLY);
 
-      Message[] liste = inbox.getMessages();
-      for (Message m : liste) {
-        fLOGGER.info("From: " + m.getFrom()[0].toString());
-        fLOGGER.info("Subject: " + m.getSubject());
-        fLOGGER.info("Content: " + m.getContent());
-      }
-      fLOGGER.info(server, Flags.Flag.SEEN);
-      fLOGGER.info("Total mails : " + inbox.getMessageCount());
-
     } catch (NoSuchProviderException nspe) {
       nspe.getMessage();
       nspe.printStackTrace();
@@ -97,57 +75,82 @@ public class ConnexionManager {
 
   }
 
-  public void getReadMails() {
+  public List<MailEntity> getAllMails() throws MessagingException {
+    Message messages[] = inbox.getMessages();
+    List<MailEntity> listeMailEntity = new ArrayList<>();
+    for (Message message : messages) {
+      MailEntity mail = new MailEntity();
+      mail.setSujet(message.getSubject());
+      mail.setExpediteur(message.getFrom()[0].toString());
+      mail.setDateReception(message.getSentDate().toString());
+      if (message.getFlags().contains(Flags.Flag.DELETED)) {
+        mail.setFlag(AppFlags.DELETED);
+      } else {
+        mail.setFlag(message.getFlags().contains(Flags.Flag.SEEN) ? AppFlags.READ : AppFlags.UNREAD);
+      }
+      listeMailEntity.add(mail);
+    }
+    return listeMailEntity;
+  }
+
+  public List<Mail> getReadMails() {
     Flags seenFlag = new Flags(Flags.Flag.SEEN);
     FlagTerm seenFlagTerm = new FlagTerm(seenFlag, true);
+    List<Mail> listeMailsRead = new ArrayList<>();
     try {
       Message[] data = inbox.search(seenFlagTerm);
       for (Message m : data) {
-        LocalMail localMail = new LocalMail();
+        Mail localMail = new Mail();
         localMail.setSujet(m.getSubject());
         localMail.setExpediteur(m.getFrom()[0].toString());
         localMail.setDateReception(m.getReceivedDate());
         localMail.setFlag(AppFlags.READ);
-        listeMails.add(localMail);
+        listeMailsRead.add(localMail);
       }
     } catch (MessagingException me) {
       me.printStackTrace();
     }
+    return listeMailsRead;
   }
 
-  public void getUnreadMails() {
+  public List<Mail> getUnreadMails() {
     Flags seenFlag = new Flags(Flags.Flag.SEEN);
     FlagTerm seenFlagTerm = new FlagTerm(seenFlag, false);
+    List<Mail> listeMailsUnread = new ArrayList<>();
     try {
       Message[] data = inbox.search(seenFlagTerm);
       for (Message m : data) {
-        LocalMail localMail = new LocalMail();
+        Mail localMail = new Mail();
         localMail.setSujet(m.getSubject());
         localMail.setExpediteur(m.getFrom()[0].toString());
         localMail.setDateReception(m.getReceivedDate());
         localMail.setFlag(AppFlags.UNREAD);
-        listeMails.add(localMail);
+        listeMailsUnread.add(localMail);
       }
     } catch (MessagingException me) {
       me.printStackTrace();
     }
+    return listeMailsUnread;
   }
 
-  public void getDeletedMails() {
+  public List<Mail> getDeletedMails() {
     Flags seenFlag = new Flags(Flags.Flag.DELETED);
     FlagTerm seenFlagTerm = new FlagTerm(seenFlag, true);
+    List<Mail> listeMailsDeleted = new ArrayList<>();
     try {
       Message[] data = inbox.search(seenFlagTerm);
       for (Message m : data) {
-        LocalMail localMail = new LocalMail();
+        Mail localMail = new Mail();
         localMail.setSujet(m.getSubject());
         localMail.setExpediteur(m.getFrom()[0].toString());
         localMail.setDateReception(m.getReceivedDate());
         localMail.setFlag(AppFlags.DELETED);
-        listeMails.add(localMail);
+        listeMailsDeleted.add(localMail);
       }
     } catch (MessagingException me) {
       me.printStackTrace();
     }
+    return listeMailsDeleted;
   }
+
 }

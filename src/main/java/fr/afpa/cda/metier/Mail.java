@@ -2,7 +2,7 @@ package fr.afpa.cda.metier;
 
 import java.util.Date;
 
-public class LocalMail {
+public class Mail {
 
   private static int idCount = 0;
   private int id;
@@ -11,12 +11,12 @@ public class LocalMail {
   private Date dateReception;
   private AppFlags flag;
 
-  public LocalMail() {
+  public Mail() {
     idCount++;
     this.id = idCount;
   }
 
-  public LocalMail(String sujet, String expediteur, Date dateReception) {
+  public Mail(String sujet, String expediteur, Date dateReception) {
     idCount++;
     this.id = idCount;
     this.sujet = sujet;
@@ -30,7 +30,7 @@ public class LocalMail {
   }
 
   public static void setIdCount(int idCount) {
-    LocalMail.idCount = idCount;
+    Mail.idCount = idCount;
   }
 
   public int getId() {
