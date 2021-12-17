@@ -1,14 +1,18 @@
 package fr.afpa.cda.metier;
 
+import javax.persistence.*;
 import java.util.Date;
-
+@Entity(name = "mail")
+@Table(name = "mail")
 public class LocalMail {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int idMail;
     private String sujet;
     private String expediteur;
     private Date dateReception;
     private char flag;
-    private int idMail;
 
     public LocalMail() {
     }
