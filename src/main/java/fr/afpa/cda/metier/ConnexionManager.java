@@ -29,8 +29,6 @@ public class ConnexionManager {
     listeMails = new ArrayList<>();
   }
 
-
-
   /**
    *
    * @param mdp
@@ -62,7 +60,7 @@ public class ConnexionManager {
       store = session.getStore("imaps");
 
       store.connect(server, mail, userPassword);
-      inbox = store.getFolder("inbox");
+      inbox = store.getFolder("INBOX");
       inbox.open(Folder.READ_ONLY);
 
     } catch (NoSuchProviderException nspe) {
@@ -134,11 +132,11 @@ public class ConnexionManager {
   }
 
   public List<Mail> getDeletedMails() {
-    Flags seenFlag = new Flags(Flags.Flag.DELETED);
-    FlagTerm seenFlagTerm = new FlagTerm(seenFlag, true);
     List<Mail> listeMailsDeleted = new ArrayList<>();
     try {
-      Message[] data = inbox.search(seenFlagTerm);
+      inbox = store.getFolder("INBOX/TRASH");
+      inbox.open(Folder.READ_ONLY);
+      Message[] data = inbox.getMessages();
       for (Message m : data) {
         Mail localMail = new Mail();
         localMail.setSujet(m.getSubject());
@@ -151,6 +149,15 @@ public class ConnexionManager {
       me.printStackTrace();
     }
     return listeMailsDeleted;
+  }
+
+  public void getFolderNames() throws MessagingException {
+    Folder[] folders = store.getDefaultFolder().list("*");
+    for (Folder folder : folders) {
+      if ((folder.getType() & Folder.HOLDS_MESSAGES) != 0) {
+        System.out.println(folder.getFullName() + ": " + folder.getMessageCount());
+      }
+    }
   }
 
 }
