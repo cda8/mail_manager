@@ -8,9 +8,9 @@ public class MailReader {
 
     public static void main(String[] args) throws InvalidMDPException {
     ConnexionManager connexionManager = new ConnexionManager();
-        int userChoise = makeYourChoise();
+//        int userChoise = makeYourChoise();
 
-        connexionManager.connexionMail(userChoise);
+        connexionManager.connexionMail(0);
 
     }
 

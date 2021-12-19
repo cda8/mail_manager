@@ -257,3 +257,298 @@
 2021-12-10 11:44:10 INFO  ConnexionManager:90 - Total new mails : 3
 2021-12-10 11:44:10 INFO  ConnexionManager:91 - Total mails non lus: 4
 2021-12-10 11:44:10 INFO  ConnexionManager:92 - Total mails effacés: 0
+2021-12-17 15:09:03 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-17 15:09:03 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-17 15:09:03 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-17 15:09:03 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-17 15:09:04 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-17 15:09:04 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-17 15:09:04 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-17 15:09:04 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-17 15:09:04 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-17 15:09:04 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-17 15:09:04 INFO  access:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3d8b319e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-17 15:09:04 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table if exists mail 
+       add column flag char(1) not null" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table if exists mail 
+       add column flag char(1) not null" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:563)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:584)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:298)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:75)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:208)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:115)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:192)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at fr.afpa.cda.hibernate.MailDAOJPA.<init>(MailDAOJPA.java:13)
+	at fr.afpa.cda.metier.ConnexionManager.<init>(ConnexionManager.java:21)
+	at fr.afpa.cda.metier.MailReader.main(MailReader.java:10)
+Caused by: org.postgresql.util.PSQLException: ERREUR: la colonne « flag » contient des valeurs NULL
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:325)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:311)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:287)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:282)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 more
+2021-12-17 15:09:04 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-17 15:11:26 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-17 15:11:26 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-17 15:11:26 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-17 15:11:26 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-17 15:11:27 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-17 15:11:27 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-17 15:11:27 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-17 15:11:27 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-17 15:11:27 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-17 15:11:27 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-17 15:11:27 INFO  access:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3d8b319e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-17 15:11:27 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table if exists mail 
+       add column flag char(1) not null" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table if exists mail 
+       add column flag char(1) not null" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:563)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:584)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:298)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:75)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:208)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:115)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:192)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at fr.afpa.cda.hibernate.MailDAOJPA.<init>(MailDAOJPA.java:13)
+	at fr.afpa.cda.metier.ConnexionManager.<init>(ConnexionManager.java:21)
+	at fr.afpa.cda.metier.MailReader.main(MailReader.java:10)
+Caused by: org.postgresql.util.PSQLException: ERREUR: doit être le propriétaire de la table mail
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:325)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:311)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:287)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:282)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 more
+2021-12-17 15:11:27 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-17 15:12:20 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-17 15:12:20 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-17 15:12:20 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-17 15:12:20 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-17 15:12:20 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-17 15:12:20 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-17 15:12:20 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-17 15:12:20 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-17 15:12:20 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-17 15:12:20 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-17 15:12:21 INFO  access:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3d8b319e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-17 15:12:21 WARN  ExceptionHandlerLoggedImpl:27 - GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table if exists mail 
+       add column flag char(1) not null" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table if exists mail 
+       add column flag char(1) not null" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:563)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:584)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:298)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:75)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:208)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:115)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:192)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at fr.afpa.cda.hibernate.MailDAOJPA.<init>(MailDAOJPA.java:13)
+	at fr.afpa.cda.metier.ConnexionManager.<init>(ConnexionManager.java:21)
+	at fr.afpa.cda.metier.MailReader.main(MailReader.java:10)
+Caused by: org.postgresql.util.PSQLException: ERREUR: doit être le propriétaire de la table mail
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2674)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2364)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:354)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:484)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:404)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:325)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:311)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:287)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:282)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 more
+2021-12-17 15:12:21 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-17 15:13:21 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-17 15:13:21 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-17 15:13:21 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-17 15:13:21 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-17 15:13:21 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-17 15:13:21 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-17 15:13:21 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-17 15:13:21 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-17 15:13:21 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-17 15:13:22 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-17 15:13:22 INFO  access:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3d8b319e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-17 15:13:22 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-17 15:16:17 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-17 15:16:17 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-17 15:16:17 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-17 15:16:17 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-17 15:16:18 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-17 15:16:18 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-17 15:16:18 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-17 15:16:18 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-17 15:16:18 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-17 15:16:18 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-17 15:16:19 INFO  access:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3d8b319e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-17 15:16:19 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-19 16:20:42 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-19 16:20:42 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-19 16:20:42 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-19 16:20:43 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-19 16:20:43 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-19 16:20:43 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-19 16:20:43 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-19 16:20:43 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-19 16:20:43 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-19 16:20:43 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-19 16:20:44 INFO  access:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@27a97e08] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-19 16:20:44 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-19 16:22:50 INFO  ConnexionManager:95 - Total mails : 14
+2021-12-19 16:22:50 INFO  ConnexionManager:96 - Total new mails : 1
+2021-12-19 16:22:50 INFO  ConnexionManager:97 - Total mails non lus: 8
+2021-12-19 16:22:50 INFO  ConnexionManager:98 - Total mails effacés: 0
+2021-12-19 16:26:07 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-19 16:26:07 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-19 16:26:07 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-19 16:26:07 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-19 16:26:07 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-19 16:26:07 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-19 16:26:07 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-19 16:26:07 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-19 16:26:07 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-19 16:26:07 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-19 16:26:08 INFO  access:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@27a97e08] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-19 16:26:08 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-19 16:26:12 INFO  ConnexionManager:95 - Total mails : 14
+2021-12-19 16:26:12 INFO  ConnexionManager:96 - Total new mails : 1
+2021-12-19 16:26:12 INFO  ConnexionManager:97 - Total mails non lus: 8
+2021-12-19 16:26:12 INFO  ConnexionManager:98 - Total mails effacés: 0
+2021-12-19 16:28:16 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-19 16:28:16 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-19 16:28:16 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-19 16:28:16 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-19 16:28:16 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-19 16:28:16 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-19 16:28:16 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-19 16:28:16 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-19 16:28:16 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-19 16:28:16 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-19 16:28:17 INFO  access:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@27a97e08] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-19 16:28:17 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-19 16:28:21 INFO  ConnexionManager:95 - Total mails : 14
+2021-12-19 16:28:21 INFO  ConnexionManager:96 - Total new mails : 1
+2021-12-19 16:28:21 INFO  ConnexionManager:97 - Total mails non lus: 8
+2021-12-19 16:28:22 INFO  ConnexionManager:98 - Total mails effacés: 0
+2021-12-19 16:28:40 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-19 16:28:40 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-19 16:28:40 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-19 16:28:40 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-19 16:28:40 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-19 16:28:40 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-19 16:28:40 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-19 16:28:40 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-19 16:28:40 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-19 16:28:40 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-19 16:28:41 INFO  access:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@27a97e08] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-19 16:28:41 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-19 16:28:45 INFO  ConnexionManager:95 - Total mails : 14
+2021-12-19 16:28:45 INFO  ConnexionManager:96 - Total new mails : 1
+2021-12-19 16:28:45 INFO  ConnexionManager:97 - Total mails non lus: 8
+2021-12-19 16:28:45 INFO  ConnexionManager:98 - Total mails effacés: 0
+2021-12-19 16:31:35 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-19 16:31:35 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-19 16:31:35 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-19 16:31:35 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-19 16:31:36 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-19 16:31:36 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-19 16:31:36 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-19 16:31:36 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-19 16:31:36 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-19 16:31:36 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-19 16:31:36 INFO  access:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3d8b319e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-19 16:31:36 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-19 16:31:40 INFO  ConnexionManager:95 - Total mails : 14
+2021-12-19 16:31:40 INFO  ConnexionManager:96 - Total new mails : 1
+2021-12-19 16:31:40 INFO  ConnexionManager:97 - Total mails non lus: 8
+2021-12-19 16:31:40 INFO  ConnexionManager:98 - Total mails effacés: 0
+2021-12-19 16:37:17 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-19 16:37:17 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-19 16:37:17 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-19 16:37:18 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-19 16:37:18 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-19 16:37:18 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-19 16:37:18 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-19 16:37:18 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-19 16:37:18 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-19 16:37:18 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-19 16:37:19 INFO  access:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3d8b319e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-19 16:37:19 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-19 16:38:03 INFO  ConnexionManager:93 - Total mails : 14
+2021-12-19 16:38:03 INFO  ConnexionManager:94 - Total new mails : 1
+2021-12-19 16:38:03 INFO  ConnexionManager:95 - Total mails non lus: 8
+2021-12-19 16:38:03 INFO  ConnexionManager:96 - Total mails effacés: 0
+2021-12-19 16:40:30 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-19 16:40:30 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-19 16:40:30 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-19 16:40:31 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-19 16:40:31 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-19 16:40:31 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-19 16:40:31 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-19 16:40:31 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-19 16:40:31 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-19 16:40:31 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-19 16:40:31 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-19 16:40:35 INFO  ConnexionManager:93 - Total mails : 14
+2021-12-19 16:40:35 INFO  ConnexionManager:94 - Total new mails : 1
+2021-12-19 16:40:35 INFO  ConnexionManager:95 - Total mails non lus: 8
+2021-12-19 16:40:35 INFO  ConnexionManager:96 - Total mails effacés: 0
+2021-12-19 16:41:43 WARN  ProviderChecker:57 - HHH015016: Encountered a deprecated javax.persistence.spi.PersistenceProvider [org.hibernate.ejb.HibernatePersistence]; [org.hibernate.jpa.HibernatePersistenceProvider] will be used instead.
+2021-12-19 16:41:43 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-19 16:41:43 INFO  Version:44 - HHH000412: Hibernate ORM core version 5.6.0.Final
+2021-12-19 16:41:43 INFO  Version:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-19 16:41:43 WARN  pooling:72 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2021-12-19 16:41:43 INFO  pooling:115 - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5433/MAILS_DB]
+2021-12-19 16:41:43 INFO  pooling:124 - HHH10001001: Connection properties: {password=****, user=entreprise}
+2021-12-19 16:41:43 INFO  pooling:129 - HHH10001003: Autocommit mode: false
+2021-12-19 16:41:43 INFO  DriverManagerConnectionProviderImpl:274 - HHH000115: Hibernate connection pool size: 20 (min=1)
+2021-12-19 16:41:43 INFO  Dialect:175 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-12-19 16:41:44 INFO  access:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3d8b319e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2021-12-19 16:41:44 INFO  JtaPlatformInitiator:52 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-19 16:41:44 INFO  ConnexionManager:93 - Total mails : 14
+2021-12-19 16:41:44 INFO  ConnexionManager:94 - Total new mails : 1
+2021-12-19 16:41:44 INFO  ConnexionManager:95 - Total mails non lus: 8
+2021-12-19 16:41:44 INFO  ConnexionManager:96 - Total mails effacés: 0

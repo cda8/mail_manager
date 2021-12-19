@@ -48,8 +48,8 @@ public class ConnexionManager {
             //init session serveur mail:
             connectSession(decodedMdp, user, server, Folder.READ_ONLY);
             logMailsTypeAndCount();
-            System.err.println(inbox.getMessages().length);
-            mapResult();
+            System.err.println("inbox.getMessage().length : " + inbox.getMessages().length);
+            listMails = mapResult();
            // displayMailsInConsol();
             forInsert(listMails);
             listMails = returnUserChoise(userChoise);
@@ -97,11 +97,12 @@ public class ConnexionManager {
 
     }
 
-    private void mapResult() throws MessagingException, IOException {
+    private List<LocalMail> mapResult() throws MessagingException, IOException {
+        List<LocalMail> localMailMapResult = new ArrayList<>();
         for (Message message : inbox.getMessages()) {
             LocalMail mail = new LocalMail();
             char status = checkFlags(message);
-
+        System.err.println("ici");
             checkFlagsInConsol(message);
             String body = getTextFromMessage(message);
 
@@ -111,8 +112,10 @@ public class ConnexionManager {
             mail.setSujet(message.getSubject());
             mail.setExpediteur(Arrays.stream(message.getFrom()).iterator().next().toString());
             mail.setBody(body);
-            listMails.add(mail);
+            localMailMapResult.add(mail);
         }
+        System.out.println("List de " + localMailMapResult.size());
+        return localMailMapResult;
     }
 
     private void checkFlagsInConsol(Message message) throws MessagingException {
@@ -168,12 +171,14 @@ public class ConnexionManager {
     private void selectedBy(String status) {
         listMails=  mailDAOJPA.selectByFlag(status);
     }
-
     private void forInsert(List<LocalMail> localMailList) {
+
         for (LocalMail m : localMailList) {
+
             mailDAOJPA.createOrUpdate(m);
+
         }
-        
+
     }
 
     private char checkFlags(Message message) throws MessagingException {

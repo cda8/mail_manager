@@ -10,9 +10,16 @@ import java.util.List;
 
 public class MailDAOJPA {
 
-    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-    EntityManager entityManager = entityManagerFactory.createEntityManager();
+    private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+    private static EntityManager entityManager = entityManagerFactory.createEntityManager();
 
+    public void beginTransaction(){
+        entityManager.getTransaction().begin();
+    }
+
+    public void commitTransaction(){
+        entityManager.getTransaction().commit();
+    }
 
 
     public List<LocalMail> selectAll(){
@@ -23,9 +30,9 @@ public class MailDAOJPA {
     }
 
     public void createOrUpdate(LocalMail mail){
-
+        beginTransaction();
         entityManager.persist(mail);
-
+        commitTransaction();
     }
 
     public void remove(LocalMail mail){
@@ -34,9 +41,8 @@ public class MailDAOJPA {
     }
 
     public List<LocalMail> selectByFlag(String flag){
-        List<LocalMail> localMailstemp = new ArrayList<>();
         List<LocalMail> resultList = new ArrayList<>();
-        localMailstemp = selectAll();
+        List<LocalMail> localMailstemp = selectAll();
         for (LocalMail m : localMailstemp){
             if(m.getFlag().equalsIgnoreCase(flag)){
                 resultList.add(m);

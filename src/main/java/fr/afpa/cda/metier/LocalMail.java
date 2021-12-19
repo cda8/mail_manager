@@ -2,6 +2,7 @@ package fr.afpa.cda.metier;
 
 import javax.persistence.*;
 import java.util.Date;
+
 @Entity(name = "mail")
 @Table(name = "mail")
 public class LocalMail {
