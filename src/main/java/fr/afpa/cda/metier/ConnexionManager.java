@@ -131,17 +131,17 @@ public class ConnexionManager {
     return listeMailsUnread;
   }
 
-  public List<Mail> getDeletedMails() {
-    List<Mail> listeMailsDeleted = new ArrayList<>();
+  public List<MailEntity> getDeletedMails() {
+    List<MailEntity> listeMailsDeleted = new ArrayList<>();
     try {
       inbox = store.getFolder("INBOX/TRASH");
       inbox.open(Folder.READ_ONLY);
       Message[] data = inbox.getMessages();
       for (Message m : data) {
-        Mail localMail = new Mail();
+        MailEntity localMail = new MailEntity();
         localMail.setSujet(m.getSubject());
         localMail.setExpediteur(m.getFrom()[0].toString());
-        localMail.setDateReception(m.getReceivedDate());
+        localMail.setDateReception(m.getReceivedDate().toString());
         localMail.setFlag(AppFlags.DELETED);
         listeMailsDeleted.add(localMail);
       }

@@ -8,12 +8,24 @@ import fr.afpa.cda.entities.MailEntity;
 import fr.afpa.cda.jpa.MailDAOJPA;
 import fr.afpa.utils.Display;
 
-
 public class MailReader {
 
   public static void main(String[] args) {
-
+    ConnexionManager connexionManager = new ConnexionManager();
     MailDAOJPA mailDAOJPA = new MailDAOJPA();
+    
+    try {
+      connexionManager.connexionMail();
+      List<MailEntity> listDeletedMails = connexionManager.getDeletedMails();
+      for (MailEntity mail : listDeletedMails) {
+        System.out.println("=> " + mail.getIdmail() + " " + mail.getSujet() + " " + mail.getExpediteur() + " "
+            + mail.getDateReception() + " " + mail.getFlag());
+        mailDAOJPA.create(mail);
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
     Display display = new Display();
     String responseMessage = "";
     String response = JOptionPane.showInputDialog("Quels mails voulez-vous consulter ? \n" +

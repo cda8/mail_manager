@@ -35,9 +35,9 @@ public class ConnexionLauncher {
                 fLOGGER.info("Date de réception : " + mail.getDateReception());
                 fLOGGER.info("Flag : " + mail.getFlag());
             }
-            List<Mail> listMailsDeleted = connexion.getDeletedMails();
+            List<MailEntity> listMailsDeleted = connexion.getDeletedMails();
             fLOGGER.info("=> Liste des mails supprimés : ");
-            for (Mail mail : listMailsDeleted) {
+            for (MailEntity mail : listMailsDeleted) {
                 fLOGGER.info("Sujet : " + mail.getSujet());
                 fLOGGER.info("Expediteur : " + mail.getExpediteur());
                 fLOGGER.info("Date de réception : " + mail.getDateReception());
