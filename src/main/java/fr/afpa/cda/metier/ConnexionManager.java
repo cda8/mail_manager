@@ -11,7 +11,7 @@ import fr.afpa.cda.exception.InvalidMDPException;
 import fr.afpa.utils.LoadProperties;
 import jakarta.mail.*;
 import jakarta.mail.Flags;
-import jakarta.mail.Flags.Flag;
+import jakarta.mail.internet.MimeMultipart;
 import jakarta.mail.search.FlagTerm;
 
 import org.slf4j.Logger;
@@ -81,11 +81,7 @@ public class ConnexionManager {
       mail.setSujet(message.getSubject());
       mail.setExpediteur(message.getFrom()[0].toString());
       mail.setDateReception(message.getSentDate().toString());
-      if (message.getFlags().contains(Flags.Flag.DELETED)) {
-        mail.setFlag(AppFlags.DELETED);
-      } else {
-        mail.setFlag(message.getFlags().contains(Flags.Flag.SEEN) ? AppFlags.READ : AppFlags.UNREAD);
-      }
+      mail.setFlag(message.getFlags().contains(Flags.Flag.SEEN) ? EFlags.READ : EFlags.UNREAD);
       listeMailEntity.add(mail);
     }
     return listeMailEntity;
@@ -98,12 +94,18 @@ public class ConnexionManager {
     try {
       Message[] data = inbox.search(seenFlagTerm);
       for (Message m : data) {
-        Mail localMail = new Mail();
-        localMail.setSujet(m.getSubject());
-        localMail.setExpediteur(m.getFrom()[0].toString());
-        localMail.setDateReception(m.getReceivedDate());
-        localMail.setFlag(AppFlags.READ);
-        listeMailsRead.add(localMail);
+        try {
+          Mail mail = new Mail();
+          mail.setSujet(m.getSubject());
+          mail.setCorps(getTextFromMessage(m));
+          mail.setExpediteur(m.getFrom()[0].toString());
+          mail.setDateReception(m.getReceivedDate().toString());
+          mail.setFlag(EFlags.READ);
+          listeMailsRead.add(mail);
+        } catch (Exception e) {
+          // TODO: handle exception
+          e.printStackTrace();
+        }
       }
     } catch (MessagingException me) {
       me.printStackTrace();
@@ -118,12 +120,18 @@ public class ConnexionManager {
     try {
       Message[] data = inbox.search(seenFlagTerm);
       for (Message m : data) {
-        Mail localMail = new Mail();
-        localMail.setSujet(m.getSubject());
-        localMail.setExpediteur(m.getFrom()[0].toString());
-        localMail.setDateReception(m.getReceivedDate());
-        localMail.setFlag(AppFlags.UNREAD);
-        listeMailsUnread.add(localMail);
+        try {
+          Mail mail = new Mail();
+          mail.setSujet(m.getSubject());
+          mail.setCorps(getTextFromMessage(m));
+          mail.setExpediteur(m.getFrom()[0].toString());
+          mail.setDateReception(m.getReceivedDate().toString());
+          mail.setFlag(EFlags.UNREAD);
+          listeMailsUnread.add(mail);
+        } catch (Exception e) {
+          // TODO: handle exception
+          e.printStackTrace();
+        }
       }
     } catch (MessagingException me) {
       me.printStackTrace();
@@ -131,19 +139,25 @@ public class ConnexionManager {
     return listeMailsUnread;
   }
 
-  public List<MailEntity> getDeletedMails() {
-    List<MailEntity> listeMailsDeleted = new ArrayList<>();
+  public List<Mail> getDeletedMails() {
+    List<Mail> listeMailsDeleted = new ArrayList<>();
     try {
       inbox = store.getFolder("INBOX/TRASH");
       inbox.open(Folder.READ_ONLY);
       Message[] data = inbox.getMessages();
       for (Message m : data) {
-        MailEntity localMail = new MailEntity();
-        localMail.setSujet(m.getSubject());
-        localMail.setExpediteur(m.getFrom()[0].toString());
-        localMail.setDateReception(m.getReceivedDate().toString());
-        localMail.setFlag(AppFlags.DELETED);
-        listeMailsDeleted.add(localMail);
+        try {
+          Mail mail = new Mail();
+          mail.setSujet(m.getSubject());
+          mail.setCorps(getTextFromMessage(m));
+          mail.setExpediteur(m.getFrom()[0].toString());
+          mail.setDateReception(m.getReceivedDate().toString());
+          mail.setFlag(EFlags.DELETED);
+          listeMailsDeleted.add(mail);
+        } catch (Exception e) {
+          // TODO: handle exception
+          e.printStackTrace();
+        }
       }
     } catch (MessagingException me) {
       me.printStackTrace();
@@ -158,6 +172,36 @@ public class ConnexionManager {
         System.out.println(folder.getFullName() + ": " + folder.getMessageCount());
       }
     }
+  }
+
+  private String getTextFromMessage(Message message) throws MessagingException, IOException {
+    String result = "";
+    if (message.isMimeType("text/plain")) {
+      result = message.getContent().toString();
+    } else if (message.isMimeType("multipart/*")) {
+      MimeMultipart mimeMultipart = (MimeMultipart) message.getContent();
+      result = getTextFromMimeMultipart(mimeMultipart);
+    }
+    return result;
+  }
+
+  private String getTextFromMimeMultipart(
+      MimeMultipart mimeMultipart) throws MessagingException, IOException {
+    String result = "";
+    int count = mimeMultipart.getCount();
+    for (int i = 0; i < count; i++) {
+      BodyPart bodyPart = mimeMultipart.getBodyPart(i);
+      if (bodyPart.isMimeType("text/plain")) {
+        result = result + "\n" + bodyPart.getContent();
+        break; // with out break same text appears twice in my tests
+      } else if (bodyPart.isMimeType("text/html")) {
+        String html = (String) bodyPart.getContent();
+        result = result + "\n" + org.jsoup.Jsoup.parse(html).text();
+      } else if (bodyPart.getContent() instanceof MimeMultipart) {
+        result = result + getTextFromMimeMultipart((MimeMultipart) bodyPart.getContent());
+      }
+    }
+    return result;
   }
 
 }

@@ -1,22 +1,24 @@
 package fr.afpa.cda.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import fr.afpa.cda.metier.AppFlags;
+import fr.afpa.cda.metier.EFlags;
 
 @Entity(name = "mails")
 @Table(name = "mails")
 public class MailEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int idmails;
+  private int idmail;
   private String sujet;
   private String expediteur;
   private String dateReception;
+  private String corps;
   private String flag;
 
   public MailEntity() {
@@ -24,11 +26,11 @@ public class MailEntity {
   }
 
   public int getIdmail() {
-    return idmails;
+    return idmail;
   }
 
   public void setIdmail(int idmail) {
-    this.idmails = idmail;
+    this.idmail = idmail;
   }
 
   public String getSujet() {
@@ -37,6 +39,14 @@ public class MailEntity {
 
   public void setSujet(String sujet) {
     this.sujet = sujet;
+  }
+
+  public String getCorps() {
+    return corps;
+  }
+
+  public void setCorps(String corps) {
+    this.corps = corps;
   }
 
   public String getExpediteur() {
@@ -59,14 +69,14 @@ public class MailEntity {
     return flag;
   }
 
-  public void setFlag(AppFlags flag) {
+  public void setFlag(EFlags flag) {
     this.flag = flag.toString();
   }
 
   @Override
   public String toString() {
     return "MailEntity [dateReception=" + dateReception + ", expediteur=" + expediteur + ", flag=" + flag + ", idmails="
-        + idmails + ", sujet=" + sujet + "]";
+        + idmail + ", sujet=" + sujet + "]";
   }
 
 }
