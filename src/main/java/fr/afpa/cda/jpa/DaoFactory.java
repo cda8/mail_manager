@@ -30,4 +30,7 @@ public class DaoFactory {
     return new MailDAOJPA(entityManager);
   }
 
+  public void closeEntityManager() {
+    entityManager.close();
+  }
 }

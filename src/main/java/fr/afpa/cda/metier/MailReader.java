@@ -1,43 +1,16 @@
 package fr.afpa.cda.metier;
 
-import java.util.List;
-
-import javax.swing.JOptionPane;
-
-import fr.afpa.cda.entities.MailEntity;
-import fr.afpa.cda.jpa.DaoFactory;
-import fr.afpa.cda.jpa.MailDAOJPA;
-import fr.afpa.cda.mapper.MailMapper;
-import fr.afpa.utils.Display;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class MailReader {
 
   public static void main(String[] args) {
-    ConnexionManager connexionManager = new ConnexionManager();
-    DaoFactory daoFactory = DaoFactory.getInstance();
+    // final Logger LOGGER = LoggerFactory.getLogger(MailReader.class);
+    // CheckDB.checkDBAndUpdateIfNeed();
+    CreateMail.sendMail();
 
-    try {
-      connexionManager.connexionMail();
-
-      // List<Mail> listReadMails = connexionManager.getReadMails();
-      // for (Mail mail : listReadMails) {
-      // MailEntity mailEntity = MailMapper.mapMailToMailEntity(mail);
-      // daoFactory.getMailDAO().create(mailEntity);
-      // }
-      // List<Mail> listUnreadMails = connexionManager.getUnreadMails();
-      // for (Mail mail : listUnreadMails) {
-      // daoFactory.getMailDAO().create(MailMapper.mapMailToMailEntity(mail));
-      // }
-      // List<Mail> listDeletedMails = connexionManager.getDeletedMails();
-      // for (Mail mail : listDeletedMails) {
-      // daoFactory.getMailDAO().create(MailMapper.mapMailToMailEntity(mail));
-      // }
- 
-
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-
+    
     // Display display = new Display();
     // String responseMessage = "";
     // String response = JOptionPane.showInputDialog("Quels mails voulez-vous

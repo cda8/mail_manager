@@ -37,19 +37,17 @@
       <version>2.0.1</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.sun.mail/jakarta.mail -->
-    <dependency>
+    <!-- <dependency>
       <groupId>com.sun.mail</groupId>
       <artifactId>jakarta.mail</artifactId>
       <version>2.0.1</version>
-    </dependency>
+    </dependency> -->
     <!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
     <dependency>
       <groupId>com.sun.mail</groupId>
       <artifactId>javax.mail</artifactId>
       <version>1.6.2</version>
     </dependency>
-
-
     <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
     <dependency>
       <groupId>org.postgresql</groupId>
@@ -68,8 +66,6 @@
       <artifactId>jsoup</artifactId>
       <version>1.14.3</version>
     </dependency>
-
-
   </dependencies>
 
   <build>

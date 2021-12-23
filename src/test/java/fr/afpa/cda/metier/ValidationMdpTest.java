@@ -6,6 +6,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import fr.afpa.utils.Validate;
+
 public class ValidationMdpTest {
   ConnexionManager connexionManager;
 
@@ -16,8 +18,8 @@ public class ValidationMdpTest {
 
   @Test
   public void testValidationMdp() {
-    assertTrue(connexionManager.validationMdp("azertyuiop"));
-    assertFalse(connexionManager.validationMdp("azerty"));
+    assertTrue(Validate.validationMdp("azertyuiop"));
+    assertFalse(Validate.validationMdp("azerty"));
 
   }
 

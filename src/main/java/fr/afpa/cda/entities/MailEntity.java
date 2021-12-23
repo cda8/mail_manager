@@ -16,9 +16,9 @@ public class MailEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int idmail;
   private String sujet;
+  private String corps;
   private String expediteur;
   private String dateReception;
-  private String corps;
   private String flag;
 
   public MailEntity() {
@@ -70,7 +70,7 @@ public class MailEntity {
   }
 
   public void setFlag(EFlags flag) {
-    this.flag = flag.toString();
+    this.flag = flag.toString().toLowerCase();
   }
 
   @Override

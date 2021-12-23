@@ -28,7 +28,6 @@ public class MailDAOJPA {
     entityManager.close();
   }
 
-  // @Transactional(dontRollbackOn=Exception.class)
   public void create(MailEntity mail) {
     transaction.begin();
     entityManager.persist(mail);

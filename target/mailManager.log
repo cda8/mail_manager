@@ -1,8 +1,0 @@
-2021-12-01 16:39:19 ERROR ConnexionLauncher:16 - Le mot de passe doit contenir au moins 8 caractères
-fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
-	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:52)
-	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:14)
-2021-12-01 16:40:17 ERROR ConnexionLauncher:16 - Le mot de passe doit contenir au moins 8 caractères
-fr.afpa.cda.exception.InvalidMDPException: Le mot de passe doit contenir au moins 8 caractères
-	at fr.afpa.cda.metier.ConnexionManager.connexionMail(ConnexionManager.java:52)
-	at fr.afpa.cda.ConnexionLauncher.main(ConnexionLauncher.java:14)
